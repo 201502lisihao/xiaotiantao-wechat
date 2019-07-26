@@ -1,0 +1,33 @@
+/**index.wxss**/
+
+/**index-banner**/
+.u-wrp-bnr {
+  width: 100%;
+  height: 400rpx;
+  display: block;
+  position: relative;
+  top: 6rpx;
+  background: #f0f0f0;
+}
+.u-img-slide {
+  width: 100%;
+  height: inherit;
+}
+
+/**index-form**/
+.index-form {
+  margin-top: 10px;
+  border: 2px solid greenyellow;
+}
+
+.index-form-title {
+  text-align: center;
+}
+
+/**页脚**/
+.weui-footer{
+    margin-bottom: 50px;
+}
+.weui-footer_fixed-bottom{
+    margin-bottom: 0;
+}

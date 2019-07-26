@@ -1,0 +1,98 @@
+/**index.wxss**/
+
+/**滚动banner**/
+.u-wrp-bnr {
+  width: 100%;
+  height: 400rpx;
+  display: block;
+  position: relative;
+  background: #f0f0f0;
+}
+.u-img-slide {
+  width: 100%;
+  height: inherit;
+}
+
+/**欢迎语**/
+.page__hd {
+  padding: 50rpx;
+  padding-bottom: 0rpx;
+}
+/**头像和个人信息**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0rpx 0;
+  box-sizing: border-box;
+} 
+
+
+/**主按钮**/
+.button-sp-area {
+    margin: 0 auto;
+    padding-top: 40rpx;
+    padding-bottom: 20rpx;
+    width: 70%;
+}
+
+.main-button {
+  font-size: 35rpx;
+  font-weight: normal;
+  background: transparent;
+  border: 1px solid #ff7e0c;
+  color: #ff7e0c;
+  border-radius: 50rpx;
+}
+
+/**列表**/
+.weui-cells {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: transparent;
+  font-size: 25rpx;
+}
+
+.weui-cells::before {
+  border: 0px;
+}
+
+.weui-cells::after {
+  border: 0px;
+}
+
+.weui-cell {
+  padding-left: 5rpx;
+  border-bottom: 1px solid #acacac;
+}
+.weui-cell::before {
+  border: 0px;
+}
+
+.weui-cell__bd {
+  font-size: 28rpx;
+  color: #5d5d5d;
+}
+
+.weui-cell__ft_in-access:after {
+  border-color: #ff7e0c;
+}

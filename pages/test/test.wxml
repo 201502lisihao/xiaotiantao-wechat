@@ -1,0 +1,87 @@
+<!--index.wxml-->
+<!--首页banner-->
+<view>
+  <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='4000' duration='500' circular='true' indicator-active-color='#FB8CCE'>
+    <block wx:for="{{bnrUrl}}" wx:for-index="index">
+      <swiper-item>
+        <image src='{{item.url}}' class='u-img-slide' mode='aspectFill'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!--表单-->
+<view class="index-form">
+  <view class="index-form-title">一个表单</view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section section_gap">
+      <view class="section__title">勾选</view>
+      <switch name="switch"/>
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">滑动</view>
+      <slider name="slider" show-value ></slider>
+    </view>
+
+    <view class="section">
+      <view class="section__title">输入框</view>
+      <input name="input" placeholder="please input here" />
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">单选</view>
+      <radio-group name="radio-group">
+        <label><radio value="radio1"/>选项1</label>
+        <label><radio value="radio2"/>选项2</label>
+      </radio-group>
+    </view>
+    <view class="section section_gap">
+      <view class="section__title">多选</view>
+      <checkbox-group name="checkbox">
+        <label><checkbox value="checkbox1"/>选项1</label>
+        <label><checkbox value="checkbox2"/>选项2</label>
+      </checkbox-group>
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">提交</button>
+      <button form-type="reset">重置</button>
+    </view>
+  </form>
+</view>
+
+<!--页面跳转-->
+<view class="btn-area">
+  <navigator url="/pages/logs/logs" hover-class="changestyle">log页面跳转，可以返回</navigator>
+  <navigator url="/pages/user/user" open-type="switchTab" hover-class="other-navigator-hover">切换tab</navigator>
+</view>
+
+<!--请求服务器--->
+<button bindtap="doRequest">请求服务器</button>
+
+<!--九宫格-->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Grid</view>
+        <view class="page__desc">九宫格</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-grids">
+            <block wx:for="{{grids}}" wx:key="*this">
+                <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+                    <image class="weui-grid__icon" src="/images/icon_tabbar.png" />
+                    <view class="weui-grid__label">Grid</view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</view>
+
+<!--页脚-->
+<view class="page">
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-footer">
+            <view class="weui-footer__links">
+                <navigator url="" class="weui-footer__link">底部链接</navigator>
+            </view>
+            <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+        </view>
+    </view>
+</view>
