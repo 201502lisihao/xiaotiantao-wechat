@@ -3,7 +3,7 @@
 @import 'thirdparty/weui.wxss';
 
 .container {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,34 +14,34 @@
 
 page{
     background-color: #F8F8F8;
-    font-size: 16px;
+    font-size: 32rpx;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 .page__hd {
-    padding: 40px;
+    padding: 80rpx;
 }
 .page__bd {
-    padding-bottom: 40px;
+    padding-bottom: 80rpx;
 }
 .page__bd_spacing {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
 }
 
 .page__ft{
-    padding-bottom: 10px;
+    padding-bottom: 20rpx;
     text-align: center;
 }
 
 .page__title {
     text-align: left;
-    font-size: 20px;
+    font-size: 40rpx;
     font-weight: 400;
 }
 
 .page__desc {
-    margin-top: 5px;
+    margin-top: 10rpx;
     color: #888888;
     text-align: left;
-    font-size: 14px;
+    font-size: 28rpx;
 }

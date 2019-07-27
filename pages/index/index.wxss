@@ -1,5 +1,23 @@
 /**index.wxss**/
 
+/**搜索**/
+.searchbar-result {
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before {
+    display: none;
+}
+.weui-cell-searchres {
+    padding: 12px 15px 12px 35px;
+}
+.page__bd_search {
+  padding-bottom: 0px;
+}
+.weui-search-bar {
+  background-color:rgba(220, 220, 220, 0.048);
+}
+
 /**滚动banner**/
 .u-wrp-bnr {
   width: 100%;

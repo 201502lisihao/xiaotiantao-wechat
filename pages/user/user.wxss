@@ -1,7 +1,7 @@
 /**user.wxss**/
 .container {
   justify-content: space-between;
-  
+  padding: 50rpx 0rpx;
 } 
 
 .userinfo {
@@ -24,4 +24,43 @@
 
 .usermotto {
   margin-top: 100px;
+}
+
+/**列表**/
+.weui-cells::before {
+  border: 0px;
+}
+
+.weui-cells {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: transparent;
+  font-size: 25rpx;
+}
+
+.weui-cells::after {
+  border: 0px;
+}
+
+.weui-cell::before {
+  border: 0px;
+}
+
+.weui-cell {
+  padding-left: 5rpx;
+  border-bottom: 1px solid #acacac;
+  font-size: 28rpx;
+  color: #5d5d5d;
+}
+
+.weui-cell-hover {
+  padding-left: 5rpx;
+  border-bottom: 1px solid #acacac;
+  background: #e7e7e7;
+  color: #ff7e0c;
+  border-radius: 10rpx;
+}
+
+.weui-cell__ft_in-access:after {
+  border-color: #ff7e0c;
 }

@@ -6,7 +6,13 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    //列表图标样式
+    "icon": [{
+      "one": "/images/icon_nav_feedback.png",
+      "two": "/images/icon_nav_feedback.png",
+      "three": "/images/icon_intro.png"
+    }],
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

@@ -3,6 +3,7 @@ const app = getApp()
 
 Page({
   data: {
+    //banner
     "bnrUrl": [{
       "url": "https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"
     }, {
@@ -10,6 +11,7 @@ Page({
     }, {
         "url": "https://images.unsplash.com/photo-1551446591-142875a901a1?w=640"
     }],
+    //列表图标样式
     "icon": [{
       "one": "/images/icon_nav_feedback.png",
       "two": "/images/icon_nav_feedback.png",
@@ -53,6 +55,8 @@ Page({
       })
     }
   },
+
+  //获取用户信息
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -61,9 +65,10 @@ Page({
       hasUserInfo: true
     })
   },
+  //自助点单
   onOrder: function (){
     wx.navigateTo({
-      url: '/pages/logs/logs',
+      url: '/pages/store/store',
     })
   }
 });
