@@ -60,5 +60,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onOrder: function (){
+    wx.navigateTo({
+      url: '/pages/logs/logs',
+    })
   }
 });
