@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/user/user",
     "pages/index/index",
     "pages/test/test",
-    "pages/logs/logs",
-    "pages/user/user"
+    "pages/logs/logs"
   ],
   "permission": {
     "scope.userLocation": {

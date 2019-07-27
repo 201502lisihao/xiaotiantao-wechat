@@ -4,16 +4,9 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -50,17 +43,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-  testClick: function() {
-    //this.setData({ test:"this is test" })
-    wx.getLocation({
-      type: 'wgs84',
-      success: (res) => {
-          this.setData({
-            "location[0].latitude":res.latitude,
-            "location[0].longitude": res.longitude
-          })
-      }
-    })
-  },
+  }
 })
