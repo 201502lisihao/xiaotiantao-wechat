@@ -64,7 +64,20 @@
   border-radius: 50rpx;
 }
 
+.main-button-hover {
+  font-size: 35rpx;
+  font-weight: normal;
+  background: #ff7e0c;
+  border: 1px solid #ff7e0c;
+  color: #f0f0f0;
+  border-radius: 50rpx;
+}
+
 /**列表**/
+.weui-cells::before {
+  border: 0px;
+}
+
 .weui-cells {
   margin-left: 30rpx;
   margin-right: 30rpx;
@@ -72,25 +85,27 @@
   font-size: 25rpx;
 }
 
-.weui-cells::before {
+.weui-cells::after {
   border: 0px;
 }
 
-.weui-cells::after {
+.weui-cell::before {
   border: 0px;
 }
 
 .weui-cell {
   padding-left: 5rpx;
   border-bottom: 1px solid #acacac;
-}
-.weui-cell::before {
-  border: 0px;
-}
-
-.weui-cell__bd {
   font-size: 28rpx;
   color: #5d5d5d;
+}
+
+.weui-cell-hover {
+  padding-left: 5rpx;
+  border-bottom: 1px solid #acacac;
+  background: #e7e7e7;
+  color: #ff7e0c;
+  border-radius: 10rpx;
 }
 
 .weui-cell__ft_in-access:after {

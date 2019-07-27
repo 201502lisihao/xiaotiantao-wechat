@@ -1,6 +1,6 @@
-/**index.wxss**/
+/**user.wxss**/
 
-/**index-banner**/
+/**user-banner**/
 .u-wrp-bnr {
   width: 100%;
   height: 400rpx;
@@ -14,7 +14,7 @@
   height: inherit;
 }
 
-/**index-form**/
+/**user-form**/
 .index-form {
   margin-top: 10px;
   border: 2px solid greenyellow;
