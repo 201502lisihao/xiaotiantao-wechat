@@ -54,7 +54,7 @@
   color: #aaa;
 }
 
-.container {
+.container-welcome {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -112,15 +112,16 @@
 }
 
 .weui-cell {
+  line-height: 50rpx;
   padding-left: 5rpx;
-  border-bottom: 1px solid #acacac;
+  border-bottom: 2rpx solid #acacac;
   font-size: 28rpx;
   color: #5d5d5d;
 }
 
 .weui-cell-hover {
   padding-left: 5rpx;
-  border-bottom: 1px solid #acacac;
+  border-bottom: 2rpx solid #acacac;
   background: #e7e7e7;
   color: #ff7e0c;
   border-radius: 10rpx;

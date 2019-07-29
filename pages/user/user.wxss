@@ -1,13 +1,14 @@
 /**user.wxss**/
 .container {
   justify-content: space-between;
-  padding: 50rpx 0rpx;
+  padding: 50rpx 0rpx 0rpx 0rpx;
 } 
 
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 40rpx;
 }
 
 .userinfo-avatar {
@@ -22,13 +23,9 @@
   font-size: 40rpx;
 }
 
-.usermotto {
-  margin-top: 100px;
-}
-
 /**列表**/
 .weui-cells::before {
-  border: 0px;
+  border: 0rpx;
 }
 
 .weui-cells {
@@ -39,23 +36,28 @@
 }
 
 .weui-cells::after {
-  border: 0px;
+  border: 0rpx;
 }
 
 .weui-cell::before {
-  border: 0px;
+  border: 0rpx;
 }
 
 .weui-cell {
+  line-height: 80rpx;
   padding-left: 5rpx;
-  border-bottom: 1px solid #acacac;
+  border-bottom: 2rpx solid #dddddd;
   font-size: 28rpx;
   color: #5d5d5d;
 }
 
+#lastCell {
+  border-bottom: 0rpx;
+}
+
 .weui-cell-hover {
   padding-left: 5rpx;
-  border-bottom: 1px solid #acacac;
+  border-bottom: 2rpx solid #acacac;
   background: #e7e7e7;
   color: #ff7e0c;
   border-radius: 10rpx;
@@ -63,4 +65,22 @@
 
 .weui-cell__ft_in-access:after {
   border-color: #ff7e0c;
+}
+
+.card {
+  background-color: #fff;
+  margin-left: 16rpx;
+  padding-bottom: 12rpx;
+  width: 710rpx;
+  border-top: 4rpx solid gainsboro;
+  border-bottom: 4rpx solid gainsboro;
+  border-left: 4rpx solid gainsboro;
+  border-right: 4rpx solid gainsboro;
+  border-radius: 10rpx;
+}
+
+
+/**页脚**/
+.weui-footer{
+    margin-top: 60rpx;
 }

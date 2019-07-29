@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/test/test",
     "pages/logs/logs",
-    "pages/store/store"
+    "pages/store/store",
+    "pages/order/order"
   ],
   "permission": {
     "scope.userLocation": {
@@ -20,18 +21,32 @@
   "tabBar": {
     "list": [
       {
+        "iconPath": "images/icons/test_def.png",
+        "selectedIconPath": "images/icons/test.png",
         "pagePath": "pages/test/test",
         "text": "测试"
       },
       {
+        "iconPath": "images/icons/index_def.png",
+        "selectedIconPath": "images/icons/index.png",
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
+        "iconPath": "images/icons/order_def.png",
+        "selectedIconPath": "images/icons/order.png",
+        "pagePath": "pages/order/order",
+        "text": "订单"
+      },
+      {
+        "iconPath": "images/icons/user_def.png",
+        "selectedIconPath": "images/icons/user.png",
         "pagePath": "pages/user/user",
         "text": "我的"
       }
-    ]
+    ],
+    "color": "#000",
+    "selectedColor": "#ff7e0c"
   },
   "networkTimeout": {
     "request": 10000,

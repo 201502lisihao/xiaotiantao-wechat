@@ -12,7 +12,7 @@
 
 <view class="page">
   <view class="page__hd">
-        <view class="container">
+        <view class="container-welcome">
           <view class="userinfo" style="margin-left:30rpx;">
             <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登录 </button>
             <block wx:else>
