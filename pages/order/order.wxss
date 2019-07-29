@@ -1,0 +1,46 @@
+.container {
+  padding: 14rpx 0rpx;
+}
+
+/*订单卡片*/
+.card {
+  margin: 16rpx 0rpx;
+  background-color: #fff;
+  width: 600rpx;
+  border-top: 4rpx solid gainsboro;
+  border-bottom: 4rpx solid gainsboro;
+  border-left: 4rpx solid gainsboro;
+  border-right: 4rpx solid gainsboro;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  color: rgb(158, 158, 158);
+  padding-top: 0rpx;
+  padding-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+
+}
+
+.weui-cells::before {
+  border: 0px;
+}
+.weui-cells::after {
+  border: 0px;
+}
+
+.weui-cell::before {
+  border: 0rpx;
+}
+.weui-cell {
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+}
+
+
+.detailButton {
+  background-color: #ff7e0c;
+  color: #fff;
+}
+
+

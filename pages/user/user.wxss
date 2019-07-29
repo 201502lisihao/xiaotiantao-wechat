@@ -63,15 +63,18 @@
   border-radius: 10rpx;
 }
 
+.weui-cell__bd {
+  margin-left: 10rpx;
+}
+
 .weui-cell__ft_in-access:after {
   border-color: #ff7e0c;
 }
 
 .card {
   background-color: #fff;
-  margin-left: 16rpx;
   padding-bottom: 12rpx;
-  width: 710rpx;
+  width: 700rpx;
   border-top: 4rpx solid gainsboro;
   border-bottom: 4rpx solid gainsboro;
   border-left: 4rpx solid gainsboro;

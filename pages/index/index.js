@@ -5,7 +5,7 @@ Page({
   data: {
     //banner
     "bnrUrl": [{
-      "url": "https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640"
+      "url": "/images/banner/banner.png"
     }, {
         "url": "https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640"
     }, {
