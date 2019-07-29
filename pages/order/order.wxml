@@ -17,8 +17,8 @@
           <view class="weui-cell__ft">￥{{item.price}}</view>
         </view>
         <view class="weui-cell">
-          <view class="weui-cell__bd">取单号：{{item.order_no}}</view>
-          <view class="weui-cell__ft"><button class="detailButton" size="mini">查看详情</button></view>
+          <view class="weui-cell__bd" style="font-size:40rpx;">取单号：{{item.order_no}}</view>
+          <view class="weui-cell__ft"><button class="detailButton" hover-class="detailButton-hover" size="mini">查看详情</button></view>
         </view>
       </view>
     </view>

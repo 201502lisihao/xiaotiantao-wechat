@@ -6,7 +6,7 @@
 .card {
   margin: 16rpx 0rpx;
   background-color: #fff;
-  width: 600rpx;
+  width: 640rpx;
   border-top: 4rpx solid gainsboro;
   border-bottom: 4rpx solid gainsboro;
   border-left: 4rpx solid gainsboro;
@@ -17,8 +17,8 @@
   color: rgb(158, 158, 158);
   padding-top: 0rpx;
   padding-bottom: 10rpx;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 
 }
 
@@ -37,10 +37,18 @@
   font-size: 28rpx;
 }
 
+.weui-cell__ft {
+  color: #ff7e0c;
+}
 
 .detailButton {
   background-color: #ff7e0c;
   color: #fff;
+}
+
+.detailButton-hover {
+  background-color: transparent;
+  color: #ff7e0c;
 }
 
 
