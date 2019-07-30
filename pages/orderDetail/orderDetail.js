@@ -4,39 +4,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderData: [{
-      "id":"1",
-      "order_no": "C179",
-      "order_status": "已确认",
-      "store_name": "小甜桃（水上公园店）",
-      "get_time": "2019-07-29 10:11:29",
-      "type": "预约单",
-      "price": "27.10",
-      "order_time": "2019-07-29 10:11:29"
-    }, {
-      "id":"2",
-      "order_no": "C179",
-      "order_status": "已确认",
-      "store_name": "小甜桃（水上公园店）",
-      "get_time": "2019-07-29 10:11:29",
-      "type": "预约单",
-      "price": "27.10",
-      "order_time": "2019-07-29 10:11:29"
-    }]
+    id:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this
+    wx.showLoading({
+      title: '努力加载中..',
+    })
+    //请求订单数据
+    wx.request({
+      url: 'https://www.qianzhuli.top/wx/test', //仅为示例，并非真实的接口地址
+      data: {
+        id: options.id
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          msg:res.data.data.msg
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    wx.hideLoading()
   },
 
   /**
@@ -79,13 +80,5 @@ Page({
    */
   onShareAppMessage: function () {
     
-  },
-  
-  //带参数跳转订单详情页
-  orderDetail: function (id) {
-    var id = id.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/orderDetail/orderDetail?id='+id,
-    })
   }
 })

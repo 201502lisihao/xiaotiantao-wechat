@@ -5,7 +5,8 @@
     "pages/index/index",
     "pages/test/test",
     "pages/logs/logs",
-    "pages/store/store"
+    "pages/store/store",
+    "pages/orderDetail/orderDetail"
   ],
   "permission": {
     "scope.userLocation": {
