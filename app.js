@@ -12,19 +12,20 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res)
-        // wx.request({
-        //   url: 'https://www.qianzhuli.top/wx/login', //仅为示例，并非真实的接口地址
-        //   data: {
-        //     code : res
-        //   },
-        //   header: {
-        //     'content-type': 'application/json' // 默认值
-        //   },
-        //   success(res) {
-        //     console.log(res.data)
-        //     that.globalData.userInfo.userId = res.data.data.userId
-        //   }
-        // })
+        wx.request({
+          url: 'https://www.qianzhuli.top/wx/login', //仅为示例，并非真实的接口地址
+          data: {
+            code : res.code
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res) {
+            console.log("login接口返回")
+            console.log(res.data)
+            that.globalData.userId = res.data.data.user_id
+          }
+        })
       }
     })
     // 获取用户信息
@@ -49,6 +50,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    userId: null
   }
 })
