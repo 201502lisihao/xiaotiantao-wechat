@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
 
   /**
@@ -22,14 +24,61 @@ Page({
       "type": "预约单",
       "price": "27.10",
       "order_time": "2019-07-29 10:11:29"
-    }]
+    }],
+    userInfo: {},
+    hasUserInfo: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this
+    //回调，保证获取到全局userInfo
+    app.userInfoReadyCallback = function(){
+      if (app.globalData.userInfo) {
+        that.setData({
+          userInfo: app.globalData.userInfo,
+          hasUserInfo: true
+        })
+      } else if (that.data.canIUse) {
+        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        // 所以此处加入 callback 以防止这种情况
+        app.userInfoReadyCallback = res => {
+          that.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      } else {
+        // 在没有 open-type=getUserInfo 版本的兼容处理
+        wx.getUserInfo({
+          success: res => {
+            app.globalData.userInfo = res.userInfo
+            that.setData({
+              userInfo: res.userInfo,
+              hasUserInfo: true
+            })
+          }
+        })
+      }
+      console.log(that.data.userInfo)
+    }
+    // wx.request({
+    //   url: 'https://www.qianzhuli.top/wx/test', //仅为示例，并非真实的接口地址
+    //   data: {
+    //     user_name: that.data.userInfo.nickName
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     console.log(res.data)
+    //     that.setData({
+    //       msg: res.data.data.msg
+    //     })
+    //   }
+    // })
   },
 
   /**
