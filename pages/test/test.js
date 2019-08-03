@@ -10,7 +10,7 @@ Page({
     grids: [0, 1, 2, 3, 4, 5, 6, 7, 8],
     //地图
     markers: [{
-      iconPath: "/resources/others.png",
+      iconPath: "/images/icons/index.png",
       id: 0,
       latitude: 23.099994,
       longitude: 113.324520,
@@ -31,7 +31,7 @@ Page({
     }],
     controls: [{
       id: 1,
-      iconPath: '/resources/location.png',
+      iconPath: '/images/icons/index.png',
       position: {
         left: 0,
         top: 300 - 50,
@@ -64,14 +64,7 @@ Page({
    */
   doRequest: function () {
     wx.request({
-      url: 'https://www.qianzhuli.top/wx/test', //仅为示例，并非真实的接口地址
-      data: {
-        x: '10',
-        y: '20'
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      url: 'https://www.qianzhuli.top/wx/test?id='+1, //仅为示例，并非真实的接口地址
       success(res) {
         console.log(res.data)
       }
