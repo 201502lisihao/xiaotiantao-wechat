@@ -54,6 +54,8 @@ Page({
         }
       })
     }
+    //这里可以获取到全局数据userInfo
+    console.log(app.globalData.userInfo)
   },
 
   //获取用户信息
