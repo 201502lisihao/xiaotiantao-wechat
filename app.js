@@ -7,6 +7,10 @@ App({
     //初始化app登录
     this.getUserDataToken();
   },
+  onUnlaunch: function () {
+    //小程序销毁时调用
+    wx.clearStorageSync();
+  },
   getUserDataToken: function (){
     var that = this;
     //获取用户缓存的utoken
@@ -40,8 +44,12 @@ App({
                     success: function (res) {
                       console.log(res.data);
                       //设置用户缓存
-                      console.log(utoken);
-                      wx.setStorageSync('utoken', utoken);
+                      var utoken = res.data.data.utoken;
+                      try {
+                        wx.setStorageSync('utoken', utoken);
+                      } catch (e) {
+                        console.log(e);
+                      }
                     }
                   })
                 }
