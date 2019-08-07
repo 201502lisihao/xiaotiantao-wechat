@@ -1,11 +1,15 @@
 //app.js
 App({
   globalData: {
-    userInfo: null
+    userInfo: null,
+    location: {}
   },
   onLaunch: function () {
     //初始化app登录
     this.getUserDataToken();
+
+    //获取用户位置信息
+    this.getLocal();
   },
   onUnlaunch: function () {
     //小程序销毁时调用
@@ -60,4 +64,24 @@ App({
       }
     })
   },
+
+  //获取经纬度
+  getLocal: function () {
+    var that = this;
+    wx.getLocation({
+      success: function (res) {
+        var longitude = res.longitude;
+        var latitude = res.latitude;
+        //console.log(longitude);
+        //console.log(latitude);
+        that.globalData.location.longitude = longitude;
+        that.globalData.location.latitude = latitude;
+      },
+      fail: function (re) {
+        console.log('初始化时获取经纬度失败');
+        console.log(res);
+      }
+    })
+  }
+
 })

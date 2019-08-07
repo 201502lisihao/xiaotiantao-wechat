@@ -20,8 +20,10 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    welcome: "上午好！",
-    naerestStore: "小甜桃（水上公园店）"
+    welcome: "你好！",
+    naerestStore: {
+      'storeName': "您附近暂无门店"
+    }
   },
 
   /**
@@ -54,14 +56,20 @@ Page({
         }
       })
     }
+    //获取欢迎词
+    this.getWelcome();
+
+    //获取最近门店
+    this.getNaerestStore();
+
     //这里可以获取到全局数据userInfo
-    console.log(app.globalData.userInfo)
+    //console.log(app.globalData.userInfo)
   },
 
   //获取用户信息
   getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+    console.log(e);
+    app.globalData.userInfo = e.detail.userInfo;
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
@@ -72,5 +80,49 @@ Page({
     wx.navigateTo({
       url: '/pages/store/store',
     })
+  },
+  //获取欢迎词
+  getWelcome: function (){
+    var that = this;
+    var nowDate = new Date();
+    var nowHour = nowDate.getHours();
+    //console.log(nowHour);
+    if(nowHour >= 6 && nowHour <= 11){
+      that.setData({
+        welcome: '上午好！'
+      })
+    }
+    if (nowHour >= 12 && nowHour <= 14) {
+      that.setData({
+        welcome: '中午好！'
+      })
+    }
+    if (nowHour >= 15 && nowHour <= 18) {
+      that.setData({
+        welcome: '下午好！'
+      })
+    }
+    if ((nowHour >= 19 && nowHour <= 23) || (nowHour >= 0 && nowHour <= 5)) {
+      that.setData({
+        welcome: '晚上好！'
+      })
+    }
+  },
+  //获取最近门店
+  getNaerestStore: function (){
+    var that = this;
+    //调服务器获取最近门店
+    wx.request({
+      url: 'https://www.qianzhuli.top/wx/getneareststore?longitude=' + app.globalData.location.longitude + '&latitude=' + app.globalData.location.latitude,
+      success: function (res){
+        console.log(res.data.data);
+        that.setData({
+          //naerestStore: res.data.naerestStore
+        })
+      },
+      fail: function (res){
+        //console.log(res.data);
+      }
+    }) 
   }
 });

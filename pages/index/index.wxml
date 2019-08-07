@@ -21,7 +21,7 @@
           </view>
           <view style="margin-left:30rpx;">
             <view class="page__title">{{userInfo.nickName}}，{{welcome}}</view>
-            <view class="page__desc">附近门店：{{naerestStore}}</view>
+            <view class="page__desc">附近门店：{{naerestStore.storeName}}</view>
           </view>
         </view>
   </view>

@@ -1,3 +1,6 @@
+//获取应用实例
+const app = getApp()
+
 Page({
   data: {
     "bnrUrl": [{
@@ -78,5 +81,13 @@ Page({
   },
   controltap(e) {
     console.log(e.controlId)
+  },
+
+  //获取经纬度
+  getLocal:function (){
+    this.setData({
+      lng: app.globalData.location.longitude,
+      lat: app.globalData.location.latitude
+    })
   }
 });

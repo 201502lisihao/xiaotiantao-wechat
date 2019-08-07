@@ -73,6 +73,12 @@
         </view>
     </view>
 </view>
+<!--获取经纬度-->
+<view>
+  <text>您的经度：{{lng}}</text>
+  <text>您的维度：{{lat}}</text>
+</view>
+<button bindtap="getLocal">获取经纬度</button>
 
 <!--页脚-->
 <view class="page">
