@@ -66,7 +66,9 @@ Page({
     //console.log('test'+app.globalData.location.longitude)
   },
 
-  //获取用户信息
+  /**
+   * 获取用户信息
+   */
   getUserInfo: function (e) {
     console.log(e);
     app.globalData.userInfo = e.detail.userInfo;
@@ -75,13 +77,19 @@ Page({
       hasUserInfo: true
     })
   },
-  //自助点单
+
+  /**
+   * 自助点单button
+   */
   onOrder: function (){
     wx.navigateTo({
-      url: '/pages/store/store',
+      url: '/pages/selectStore/selectStore',
     })
   },
-  //获取欢迎词
+
+  /**
+   * 获取欢迎词
+   */
   getWelcome: function (){
     var that = this;
     var nowDate = new Date();
@@ -114,7 +122,9 @@ Page({
     }
   },
 
-  //获取最近门店
+  /**
+   * 获取离用户最近的门店信息
+   */
   getNaerestStore: function (){
     var that = this;
     wx.getLocation({
@@ -130,10 +140,10 @@ Page({
           url: 'https://www.qianzhuli.top/wx/getneareststore?longitude=' + longitude + '&latitude=' + latitude,
           success: function (res) {
             console.log('获取最近门店成功');
-            console.log(res.data.data);
-            if (res.data.data.nearest_store_info){
+            console.log(res.data);
+            if (res.data.nearest_store_info){
               that.setData({
-                'naerestStore.storeName': res.data.data.nearest_store_info.store_name
+                'naerestStore.storeName': res.data.nearest_store_info.store_name
               })
             }
           },

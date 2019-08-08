@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/selectStore/selectStore",
     "pages/order/order",
     "pages/user/user",
     "pages/test/test",
     "pages/logs/logs",
-    "pages/store/store",
     "pages/orderDetail/orderDetail"
   ],
   "permission": {

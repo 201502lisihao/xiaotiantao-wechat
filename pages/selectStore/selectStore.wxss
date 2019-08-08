@@ -1,0 +1,5 @@
+/* pages/selectStore/selectStore.wxss */
+.title{
+  border-left: 10rpx solid gold;
+  padding-left: 30rpx;
+}

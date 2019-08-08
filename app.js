@@ -44,9 +44,9 @@ App({
                     },
                     success: function (res) {
                       console.log('获取utoken成功');
-                      console.log(res.data.data);
+                      console.log(res.data);
                       //设置用户缓存
-                      var utoken = res.data.data.utoken;
+                      var utoken = res.data.utoken;
                       try {
                         wx.setStorageSync('utoken', utoken);
                       } catch (e) {
