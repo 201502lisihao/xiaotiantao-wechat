@@ -51,7 +51,7 @@
         <view class="weui-cell__bd">整点秒杀</view>
         <view class="weui-cell__ft_in-access"></view>
       </navigator>
-      <navigator url="/pages/logs/logs" class="weui-cell" hover-class="weui-cell-hover">
+      <navigator url="/pages/test/test" class="weui-cell" hover-class="weui-cell-hover">
         <view class="weui-cell__hd">
           <image src="{{icon[0].three}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
         </view>

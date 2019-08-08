@@ -22,12 +22,6 @@
   "tabBar": {
     "list": [
       {
-        "iconPath": "images/icons/test_def.png",
-        "selectedIconPath": "images/icons/test.png",
-        "pagePath": "pages/test/test",
-        "text": "测试"
-      },
-      {
         "iconPath": "images/icons/index_def.png",
         "selectedIconPath": "images/icons/index.png",
         "pagePath": "pages/index/index",

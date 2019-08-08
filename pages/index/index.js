@@ -133,7 +133,7 @@ Page({
             console.log(res.data.data);
             if (res.data.data.nearest_store_info){
               that.setData({
-                'naerestStore.storeName': res.data.data.nearest_store_info[0].store_name
+                'naerestStore.storeName': res.data.data.nearest_store_info.store_name
               })
             }
           },
