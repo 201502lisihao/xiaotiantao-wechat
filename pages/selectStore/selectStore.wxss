@@ -1,5 +1,31 @@
 /* pages/selectStore/selectStore.wxss */
 .title{
-  border-left: 10rpx solid gold;
+  border-left: 10rpx solid #ff7e0c;
   padding-left: 30rpx;
+}
+.page__hd{
+  padding-bottom: 50rpx;
+}
+
+/*门店信息相关样式*/
+.storeName{
+  font-size: 30rpx;
+}
+.storeAddress{
+  line-height: 60rpx;
+  color: gray;
+  font-size: 28rpx;
+}
+.storeTime{
+  color: gray;
+  font-size: 28rpx;
+}
+.storeDistance{
+  color: #ff7e0c;
+}
+.icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-bottom: -6rpx;
+  margin-right: 10rpx;
 }

@@ -13,11 +13,11 @@
       <block wx:for="{{nearlyStoresInfo}}" wx:key="id">
         <navigator url="/pages/logs/logs" class="weui-cell" hover-class="weui-cell-hover">
           <view class="weui-cell__bd">
-            <view>{{item.store_name}}</view>
-            <view>{{item.store_addr}}</view>
-            <view>营业时间：{{item.store_time}}</view>
+            <view class="storeName">{{item.store_name}}</view>
+            <view class="storeAddress">{{item.store_addr}}</view>
+            <view class="storeTime"><image src="/images/icons/time.png" class="icon"></image>营业时间：{{item.store_time}}</view>
           </view>
-          <view class="weui-cell__ft_in-access">{{item.store_distance}}km</view>
+          <view class="weui-cell__ft_in-access storeDistance">{{item.store_distance}}km</view>
         </navigator>
       </block>
     </view>
