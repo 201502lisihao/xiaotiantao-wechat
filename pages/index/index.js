@@ -87,7 +87,12 @@ Page({
     var nowDate = new Date();
     var nowHour = nowDate.getHours();
     //console.log(nowHour);
-    if(nowHour >= 6 && nowHour <= 11){
+    if (nowHour >= 6 && nowHour <= 8) {
+      that.setData({
+        welcome: '早上好！'
+      })
+    }
+    if(nowHour >= 9 && nowHour <= 11){
       that.setData({
         welcome: '上午好！'
       })

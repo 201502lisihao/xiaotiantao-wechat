@@ -16,21 +16,6 @@ Page({
       title: '努力加载中..',
     })
     //请求订单数据
-    wx.request({
-      url: 'https://www.qianzhuli.top/wx/test', //仅为示例，并非真实的接口地址
-      data: {
-        id: options.id
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        console.log(res.data)
-        that.setData({
-          msg:res.data.data.msg
-        })
-      }
-    })
   },
 
   /**

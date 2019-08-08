@@ -70,14 +70,10 @@ App({
     var that = this;
     wx.getLocation({
       success: function (res) {
-        var longitude = res.longitude;
-        var latitude = res.latitude;
-        //console.log(longitude);
-        //console.log(latitude);
-        that.globalData.location.longitude = longitude;
-        that.globalData.location.latitude = latitude;
+        that.globalData.location.longitude = res.longitude;
+        that.globalData.location.latitude = res.latitude;
       },
-      fail: function (re) {
+      fail: function (res) {
         console.log('初始化时获取经纬度失败');
         console.log(res);
       }
