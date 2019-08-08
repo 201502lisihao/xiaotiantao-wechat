@@ -118,6 +118,7 @@ Page({
   getNaerestStore: function (){
     var that = this;
     wx.getLocation({
+      type: 'gcj02',
       success: function (res) {
         var longitude = res.longitude;
         var latitude = res.latitude;
@@ -128,7 +129,13 @@ Page({
         wx.request({
           url: 'https://www.qianzhuli.top/wx/getneareststore?longitude=' + longitude + '&latitude=' + latitude,
           success: function (res) {
+            console.log('获取最近门店成功');
             console.log(res.data.data);
+            if (res.data.data.nearest_store_info){
+              that.setData({
+                'naerestStore.storeName': res.data.data.nearest_store_info[0].store_name
+              })
+            }
           },
           fail: function (res) {
             console.log('请求getneareststore失败');

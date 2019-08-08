@@ -43,7 +43,8 @@ App({
                       console.log('请求userAuthLogin失败,res=' + res)
                     },
                     success: function (res) {
-                      console.log(res.data);
+                      console.log('获取utoken成功');
+                      console.log(res.data.data);
                       //设置用户缓存
                       var utoken = res.data.data.utoken;
                       try {
