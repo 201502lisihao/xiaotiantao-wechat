@@ -63,7 +63,7 @@ Page({
     this.getNaerestStore();
 
     //这里可以获取到全局数据userInfo
-    //console.log(app.globalData.userInfo)
+    //console.log('test'+app.globalData.location.longitude)
   },
 
   //获取用户信息
@@ -113,21 +113,33 @@ Page({
       })
     }
   },
+
   //获取最近门店
   getNaerestStore: function (){
     var that = this;
-    //调服务器获取最近门店
-    wx.request({
-      url: 'https://www.qianzhuli.top/wx/getneareststore?longitude=' + app.globalData.location.longitude + '&latitude=' + app.globalData.location.latitude,
-      success: function (res){
-        console.log(res.data.data);
-        that.setData({
-          //naerestStore: res.data.naerestStore
-        })
+    wx.getLocation({
+      success: function (res) {
+        var longitude = res.longitude;
+        var latitude = res.latitude;
+        //将位置信息放入globalData
+        app.globalData.location.longitude = longitude;
+        app.globalData.location.latitude = latitude;
+        //调服务器获取最近门店
+        wx.request({
+          url: 'https://www.qianzhuli.top/wx/getneareststore?longitude=' + longitude + '&latitude=' + latitude,
+          success: function (res) {
+            console.log(res.data.data);
+          },
+          fail: function (res) {
+            console.log('请求getneareststore失败');
+            console.log(res);
+          }
+        }) 
       },
-      fail: function (res){
-        //console.log(res.data);
+      fail: function (res) {
+        console.log('首页获取经纬度失败');
+        console.log(res);
       }
-    }) 
+    })
   }
 });
