@@ -42,7 +42,7 @@ Page({
         height: 50
       },
       clickable: true
-    }]
+    }],
   },
 
   /**

@@ -30,6 +30,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //todo 梳理逻辑，去掉重复逻辑
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -82,6 +83,62 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+    //@todo，重复获取userInfo，需解决
+    this.getUserDataToken();
+  },
+
+  /**
+   * 
+   */
+  getUserDataToken: function () {
+    //获取用户缓存的utoken
+    var utoken = wx.getStorageSync('utoken');
+    wx.login({
+      success: function (res) {
+        var code = res.code;
+        // 获取用户信息
+        wx.getSetting({
+          success: res => {
+            if (res.authSetting['scope.userInfo']) {
+              // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+              wx.getUserInfo({
+                success: function (res) {
+                  if (app.userInfoReadyCallback) {
+                    app.userInfoReadyCallback(res)
+                  }
+                  wx.request({
+                    url: 'https://www.qianzhuli.top/wx/userauthlogin',
+                    method: 'POST',
+                    data: {
+                      utoken: utoken,
+                      code: code,
+                      encryptedData: res.encryptedData,
+                      iv: res.iv
+                    },
+                    fail: function (res) {
+                      console.log('请求userAuthLogin失败,res=' + res)
+                    },
+                    success: function (res) {
+                      console.log('获取utoken和userId成功');
+                      console.log(res.data);
+                      //设置用户缓存
+                      var utoken = res.data.utoken;
+                      var userId = res.data.user_id;
+                      try {
+                        wx.setStorageSync('utoken', utoken);
+                        wx.setStorageSync('userId', userId);
+                      } catch (e) {
+                        console.log(e);
+                      }
+                    }
+                  })
+                }
+              })
+            }
+          }
+        })
+      }
     })
   },
 

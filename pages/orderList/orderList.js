@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderData: [{
+    orderList: [{
       "id":"1",
       "order_no": "C179",
       "order_status": "已确认",
@@ -14,7 +14,7 @@ Page({
       "get_time": "2019-07-29 10:11:29",
       "type": "预约单",
       "price": "27.10",
-      "order_time": "2019-07-29 10:11:29"
+      "create_at": "2019-07-29 10:11:29"
     }, {
       "id":"2",
       "order_no": "C179",
@@ -23,20 +23,21 @@ Page({
       "get_time": "2019-07-29 10:11:29",
       "type": "预约单",
       "price": "27.10",
-      "order_time": "2019-07-29 10:11:29"
+      "create_at": "2019-07-29 10:11:29"
     }],
-    userInfo: {},
-    hasUserInfo: false
+    hasOrderList: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
+    var that = this;
     wx.showLoading({
       title: '努力加载中..',
-    })
+    });
+    //获取用户订单信息
+    that.getOrderListByUserId();
   },
 
   /**
@@ -92,9 +93,48 @@ Page({
    * button带参数跳转订单详情页
    */
   orderDetail: function (id) {
-    var id = id.currentTarget.dataset.id
+    var id = id.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/orderDetail/orderDetail?id='+id,
-    })
+    });
+  },
+
+  /**
+   * 根据userId获取用户订单
+   */
+  getOrderListByUserId: function () {
+    var that = this;
+    var userId = wx.getStorageSync('userId');
+    console.log('1111');
+    console.log(userId);
+    //读缓存，有缓存直接用缓存数据，否则请求数据库，获取最新的订单数据
+    var key = userId + '_OrderList';
+    var cache = wx.getStorageSync(key);
+    if(cache != false){
+      that.setData({
+        orderList: cache
+      });
+    } else {
+      //请求服务器，获取该用户实时的orderList并放入缓存
+      wx.request({
+        url: 'https://www.qianzhuli.top/wx/getorderlistByUserId?userId=' + userId,
+        success: function (res) {
+          var orderList = res.data.order_list
+          console.log(orderList);
+          //放入本地缓存
+          //wx.setStorageSync(key, orderList);
+          //放入页面data
+          that.setData({
+              orderList: orderList,
+              hasOrderList: true
+          })
+        },
+        fail: function (res) {
+          console.log('请求服务器获取用户orderlist失败');
+          console.log(res);
+        }
+      })
+    }
+    //@todo 新订单存库时，清除该用户的缓存，防止下单后读不到订单的问题
   }
 })

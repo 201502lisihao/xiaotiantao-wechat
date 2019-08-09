@@ -119,14 +119,10 @@ Page({
         console.log(res.data);
         //遍历门店列表，将相关数据添加到data中
         var nearlyStores = res.data.nearly_stores_info;
-        var list = [];
-        for (var index in nearlyStores) {
-          list.push(nearlyStores[index]);
-        }
-        if(list != false){
+        if (nearlyStores != false) {
           //刷新data
           that.setData({
-            nearlyStoresInfo: list,
+            nearlyStoresInfo: nearlyStores,
             hasNearlyStores: true
           })
         }
