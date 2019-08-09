@@ -4,7 +4,7 @@
   padding-left: 30rpx;
 }
 .page__hd{
-  padding-bottom: 50rpx;
+  padding-bottom: 30rpx;
 }
 
 /*门店信息相关样式*/
@@ -28,4 +28,27 @@
   height: 30rpx;
   margin-bottom: -6rpx;
   margin-right: 10rpx;
+}
+.weui-cell-hover{
+  background-color: rgb(238, 238, 238);
+}
+
+/*抱歉样式*/
+.sorry_view{
+  display: flex;
+  flex-direction: row;
+  padding-left: 150rpx;
+}
+.sorry_img{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+/*返回首页按钮*/
+.weui-btn{
+  margin: 40rpx;
+}
+.weui-btn:first-child{
+  margin-top: 40rpx;
 }

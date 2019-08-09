@@ -9,15 +9,8 @@ Page({
   data: {
     longitude:null,
     latitude:null,
-    nearlyStoresInfo:[
-      {
-
-      },
-      {
-
-      }
-    ],
-    hasNearlyStores: false
+    nearlyStoresInfo:[],
+    hasNearlyStores:false
   },
 
   /**
@@ -127,14 +120,26 @@ Page({
         for (var index in nearlyStores) {
           list.push(nearlyStores[index]);
         }
-        //刷新data
-        that.setData({
-          nearlyStoresInfo: list
-        })
+        if(list != false){
+          //刷新data
+          that.setData({
+            nearlyStoresInfo: list,
+            hasNearlyStores: true
+          })
+        }
       },
       fail: function (res) {
         console.log(res);
       }
+    })
+  },
+
+  /**
+   * button 返回首页
+   */
+  goIndex: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
     })
   }
 })

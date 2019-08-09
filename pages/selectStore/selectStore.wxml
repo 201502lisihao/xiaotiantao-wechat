@@ -1,15 +1,16 @@
 <!--pages/selectStore/selectStore.wxml-->
 <view class="page">
   <view class="page__hd">
-    <view class="page__title title">附近门店:</view>
-    <view class="page__desc">门店密集，请注意区分！</view>
+    <view class="page__title title">选择门店:</view>
+    <view wx:if="{{hasNearlyStores}}" class="page__desc">门店密集，请注意区分！</view>
+    <view wx:else class="page__desc">抱歉，您附近暂无门店</view>
   </view>
 </view>
 
 <!--门店list-->
 <view class="page">
   <view class="page-bd">
-    <view class="weui-cells">
+    <view wx:if="{{hasNearlyStores}}" class="weui-cells">
       <block wx:for="{{nearlyStoresInfo}}" wx:key="id">
         <navigator url="/pages/logs/logs" class="weui-cell" hover-class="weui-cell-hover">
           <view class="weui-cell__bd">
@@ -21,5 +22,15 @@
         </navigator>
       </block>
     </view>
+    <view wx:else class="sorry_view">
+      <image src="/images/icons/404-1.png" class="sorry_img"></image>
+      <image src="/images/icons/404-2.png" class="sorry_img"></image>
+      <image src="/images/icons/404-2.png" class="sorry_img"></image>
+    </view>
   </view>
+</view>
+
+<!--返回button-->
+<view class="page">
+  <button class="weui-btn" type="primary" bindtap="goIndex">返回首页</button>
 </view>
