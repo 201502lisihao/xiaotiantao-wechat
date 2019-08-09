@@ -1,0 +1,26 @@
+<view class="container">
+  <block wx:for="{{orderData}}" wx:key="id">
+    <view class="card">
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">下单时间：{{item.order_time}}</view>
+          <view class="weui-cell__ft">{{item.order_status}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">门店名称：{{item.store_name}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">取单时间：{{item.get_time}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">订单类型：{{item.type}}</view>
+          <view class="weui-cell__ft">￥{{item.price}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd" style="color:#000;font-size:40rpx;">取单号：{{item.order_no}}</view>
+          <view class="weui-cell__ft"><button class="detailButton" hover-class="detailButton-hover" size="mini" bindtap="orderDetail" data-id="{{item.id}}">查看详情</button></view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

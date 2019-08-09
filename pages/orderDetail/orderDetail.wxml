@@ -1,1 +1,2 @@
-<text>{{msg}}</text>
+<!--订单详情页-->
+<text>{{id}}</text>

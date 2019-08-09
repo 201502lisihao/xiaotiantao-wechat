@@ -12,7 +12,7 @@
   <view class="page-bd">
     <view wx:if="{{hasNearlyStores}}" class="weui-cells">
       <block wx:for="{{nearlyStoresInfo}}" wx:key="id">
-        <navigator url="/pages/logs/logs" class="weui-cell" hover-class="weui-cell-hover">
+        <navigator url="/pages/order/order?id={{item.id}}" class="weui-cell" hover-class="weui-cell-hover">
           <view class="weui-cell__bd">
             <view class="storeName">{{item.store_name}}</view>
             <view class="storeAddress">{{item.store_addr}}</view>

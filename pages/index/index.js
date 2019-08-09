@@ -65,6 +65,13 @@ Page({
     //这里可以获取到全局数据userInfo
     //console.log('test'+app.globalData.location.longitude)
   },
+  
+  /**
+   * 页面加载完成触发
+   */
+  onReady: function () {
+
+  },
 
   /**
    * 获取用户信息

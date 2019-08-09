@@ -17,6 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '努力加载中..',
+    })
     //获取用户位置
     this.getUserLocal();
     //获取附近门店数据
@@ -27,7 +30,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.hideLoading();
   },
 
   /**

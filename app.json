@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/selectStore/selectStore",
     "pages/order/order",
+    "pages/orderList/orderList",
     "pages/user/user",
     "pages/test/test",
     "pages/logs/logs",
@@ -30,7 +31,7 @@
       {
         "iconPath": "images/icons/order_def.png",
         "selectedIconPath": "images/icons/order.png",
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/orderList/orderList",
         "text": "订单"
       },
       {

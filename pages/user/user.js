@@ -15,6 +15,9 @@ Page({
     }],
   },
   onLoad: function () {
+    wx.showLoading({
+      title: '努力加载中..',
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,6 +45,17 @@ Page({
       })
     }
   },
+
+  /**
+   * 页面加载完成触发
+   */
+  onReady: function(){
+    wx.hideLoading();
+  },
+
+  /**
+   * 获取用户信息
+   */
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:""
+    id: null
   },
 
   /**
@@ -14,6 +14,10 @@ Page({
     var that = this
     wx.showLoading({
       title: '努力加载中..',
+    })
+    //获取orderId,放入data中
+    that.setData({
+      id: options.id
     })
     //请求订单数据
   },
