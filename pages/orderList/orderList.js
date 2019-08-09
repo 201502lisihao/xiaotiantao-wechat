@@ -105,7 +105,7 @@ Page({
   getOrderListByUserId: function () {
     var that = this;
     var userId = wx.getStorageSync('userId');
-    console.log('1111');
+    console.log('userId为');
     console.log(userId);
     //读缓存，有缓存直接用缓存数据，否则请求数据库，获取最新的订单数据
     var key = userId + '_OrderList';
