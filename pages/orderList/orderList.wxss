@@ -51,4 +51,29 @@
   color: #ff7e0c;
 }
 
+/*抱歉样式*/
+.sorry_title{
+  text-align: center;
+  color: rgb(158, 158, 158);
+  
+}
+.sorry_view{
+  display: flex;
+  flex-direction: row;
+  padding-left: 225rpx;
+  margin-top: 50rpx;
+}
+.sorry_img{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
 
+/*即刻下单按钮*/
+.weui-btn{
+  margin: 40rpx;
+}
+.weui-btn:first-child{
+  margin-top: 40rpx;
+}

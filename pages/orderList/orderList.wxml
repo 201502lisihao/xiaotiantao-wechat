@@ -1,9 +1,9 @@
-<view class="container">
+<view wx:if="{{hasOrderList}}" class="container">
   <block wx:for="{{orderList}}" wx:key="id">
     <view class="card">
       <view class="weui-cells">
         <view class="weui-cell">
-          <view class="weui-cell__bd">下单时间：{{item.order_time}}</view>
+          <view class="weui-cell__bd">下单时间：{{item.create_at}}</view>
           <view class="weui-cell__ft">{{item.order_status}}</view>
         </view>
         <view class="weui-cell">
@@ -17,10 +17,24 @@
           <view class="weui-cell__ft">￥{{item.price}}</view>
         </view>
         <view class="weui-cell">
-          <view class="weui-cell__bd" style="color:#000;font-size:40rpx;">取单号：{{item.order_no}}</view>
+          <view class="weui-cell__bd" style="color:#000;font-size:40rpx;">取单号：{{item.get_no}}</view>
           <view class="weui-cell__ft"><button class="detailButton" hover-class="detailButton-hover" size="mini" bindtap="orderDetail" data-id="{{item.id}}">查看详情</button></view>
         </view>
       </view>
     </view>
   </block>
+</view>
+<view wx:else>
+  <view class="sorry_view">
+      <image src="/images/icons/404-1.png" class="sorry_img"></image>
+      <image src="/images/icons/404-2.png" class="sorry_img"></image>
+      <image src="/images/icons/404-2.png" class="sorry_img"></image>
+  </view>
+  <view class="sorry_title">
+    <text>暂无订单</text>
+  </view>
+  <!--去下单按钮-->
+  <view class="page">
+    <button class="weui-btn" type="primary" bindtap="goOrder">即 刻 下 单</button>
+  </view>
 </view>

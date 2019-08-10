@@ -32,5 +32,5 @@
 
 <!--返回button-->
 <view class="page">
-  <button class="weui-btn" type="primary" bindtap="goIndex">返回首页</button>
+  <button class="weui-btn" type="primary" bindtap="goIndex">返 回 首 页</button>
 </view>
