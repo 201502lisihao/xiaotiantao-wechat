@@ -6,25 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderList: [{
-      "id":"1",
-      "order_no": "C179",
-      "order_status": "已确认",
-      "store_name": "小甜桃（水上公园店）",
-      "get_time": "2019-07-29 10:11:29",
-      "type": "预约单",
-      "price": "27.10",
-      "create_at": "2019-07-29 10:11:29"
-    }, {
-      "id":"2",
-      "order_no": "C179",
-      "order_status": "已确认",
-      "store_name": "小甜桃（水上公园店）",
-      "get_time": "2019-07-29 10:11:29",
-      "type": "预约单",
-      "price": "27.10",
-      "create_at": "2019-07-29 10:11:29"
-    }],
+    orderList: [],
     hasOrderList: false
   },
 
