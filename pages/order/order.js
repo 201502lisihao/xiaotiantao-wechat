@@ -36,8 +36,9 @@ Page({
       title: '努力加载中',
     })
     var that = this;
-    var sysinfo = wx.getSystemInfoSync().windowHeight;
-    console.log(sysinfo)
+    //获取可用窗口高度 rpx
+    var usefulWindowHeightRpx = wx.getSystemInfoSync().windowHeight * 2;
+    //console.log(usefulWindowHeightRpx)
     //将本来的后台换成了easy-mock 的接口，所有数据一次请求完 略大。。
     wx.request({
       url: 'https://easy-mock.com/mock/59abab95e0dc66334199cc5f/coco/aa',
@@ -49,12 +50,14 @@ Page({
       success: function (res) {
         console.log('mock返回结果');
         console.log(res);
+        //页面参数都request请求后set
         that.setData({
           listData: res.data,
           loading: true,
           storeId: options.id,
           storeName: options.store_name,
-          storeDistance: options.store_distance
+          storeDistance: options.store_distance,
+          usefulWindowHeightRpx: usefulWindowHeightRpx
         });
         wx.hideLoading();
       },

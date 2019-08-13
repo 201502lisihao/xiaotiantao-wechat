@@ -63,8 +63,8 @@
 .list-left-menu-box-selected{
   padding:10rpx;
   height:72rpx;
-  color: #FF9C35;
-  border-left:6rpx solid #FF9C35;
+  color: #ff7e0c;
+  border-left:6rpx solid #ff7e0c;
   background:white;
 }
 
@@ -90,8 +90,8 @@
   border-bottom: 2rpx solid #E3E3E3;
 }
 .list-image{
-  width:108rpx;
-  margin-top:16rpx;
+  width:144rpx;
+  margin-top:8rpx;
 }
 .issue-name{
   width:400rpx;
@@ -100,7 +100,7 @@
 }
 .plus-icon{
   float:right;
-  color:#FF9C35;
+  color:#ff7e0c;
   font-size:46rpx;
 }
 .operate-bar{
@@ -210,12 +210,12 @@
   z-index:1002;
 }
 .select-active{
-  color:#FF9C35;
-  border:2rpx solid #FF9C35;
+  color:#ff7e0c;
+  border:2rpx solid #ff7e0c;
 }
 .select-price{
   font-size:28rpx;
-  color:#FF9C35;
+  color:#ff7e0c;
   margin-top:40rpx;
   display:flex;
   align-items: center;
@@ -225,26 +225,26 @@
   height:80rpx;
   width:200rpx;
   font-size:28rpx;
-  background:#FF9C35;
+  background:#ff7e0c;
   color:white;
   margin-right:40rpx;
 }
 
 
 .activity-color{
-  color:#FF9C35;
+  color:#ff7e0c;
 }
 .color-white{
   color:white;
 }
 .activity-color-bg{
-  background:#FF9C35;
+  background:#ff7e0c;
 }
 
 .label-cart-bar{
   color:#878787;
   font-size:24rpx;
-  border-left:8rpx solid #FF9C35;
+  border-left:8rpx solid #ff7e0c;
   margin-left: 40rpx;
 }
 .icon-clear{
@@ -283,18 +283,29 @@
   height:40rpx; 
   position: fixed;
   bottom:110rpx;
-  background:#FFCD9B;
+  background:#ff7e0c;
   width:100%;
   color:#FFF7EC;
   font-size:24rpx;
   text-align:center;
 }
 
+/*banner*/
+.order_banner {
+  margin-left: 160rpx;
+}
+.order_banner_image {
+  width: 590rpx;
+  height: 285rpx;
+}
 /*下单地址*/
 .order_location {
-  margin-left: 186rpx;
-  color: gray;
+  margin-left: 180rpx;
+  color: #6C6C6C;
   font-size: 28rpx;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #E3E3E3;
 }
 .order_location_img {
   margin-bottom: -6rpx;

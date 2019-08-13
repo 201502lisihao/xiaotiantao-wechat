@@ -9,8 +9,11 @@
     </view>
   </view>
   <!-- 右侧菜单 -->
-  <scroll-view scroll-y="true" style='height:1200rpx;' bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <scroll-view scroll-y="true" style="height:{{usefulWindowHeightRpx}}rpx" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <!--todo，展示广告-->
+    <view class="order_banner">
+      <image src="/images/banner/test1.png" class="order_banner_image"></image>
+    </view>
     <view  wx:if="{{storeId}}" class="order_location">
       <image src="/images/icons/location.png" class="order_location_img"></image>
       <text>{{storeName}}</text>
@@ -23,9 +26,9 @@
           <image class="list-image" mode="widthFix" src='{{items.image_url}}'></image>
         </view>
         <view class='issue-name'>
-          <view>{{items.name}}</view>
-          <view style='margin-top:20rpx;color:#F05A86'>
-            ¥ {{items.specfoods[0].price}}.00
+          <view style="color:#6C6C6C;">{{items.name}}</view>
+          <view style='margin-top:20rpx;color:#ff7e0c'>
+            <text style="font-size:22rpx;">¥ </text><text style="font-weight:bold;">{{items.specfoods[0].price}}.00</text>
             <i class="iconfont icon-jiahao2fill plus-icon" data-type="{{index}}" data-index="{{indexs}}" bindtap="selectInfo"></i>
           </view>
         </view>
@@ -40,7 +43,7 @@
           <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
         </i>
         <view class='gouwuche-price' wx:if="{{sumMonney==0}}">购物车是空的</view>
-        <view class='gouwuche-price' style='color:white;font-size:18px' wx:if="{{sumMonney!=0}}">¥ {{sumMonney}}.00</view>
+        <view class='gouwuche-price' style='color:white;font-size:36rpx;margin-top:20rpx;' wx:if="{{sumMonney!=0}}">¥ {{sumMonney}}.00</view>
       </view>
     </view>
     <view class="submit-btn {{sumMonney!=0?'activity-color-bg':'' }}" bindtap='goBalance'>
