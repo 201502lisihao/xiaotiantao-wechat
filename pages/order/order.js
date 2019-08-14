@@ -78,6 +78,7 @@ Page({
     console.log(this.data.toView);
   },
   scroll: function (e) {
+    //todo打这个e日志时，选择的menu会自动往下跳一个，有bug，记得修复
     console.log(e)
     var dis = e.detail.scrollTop
     if (dis > 0 && dis < 1189) {
