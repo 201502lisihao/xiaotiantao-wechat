@@ -2,14 +2,14 @@
 
 
 <view>
-<!-- 左侧菜单 -->
+  <!-- 左侧菜单 -->
   <view class="list-left-menu">
     <view wx:for="{{listData}}" wx:key="unique" class="{{index==activeIndex?'list-left-menu-box-selected':'list-left-menu-box-unselect'}}" data-index="{{index}}" bindtap='selectMenu'>
       <view class="list-menu-name">{{item.name}}</view>
     </view>
   </view>
   <!-- 右侧菜单 -->
-  <scroll-view scroll-y="true" style="height:{{usefulWindowHeightRpx}}rpx" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <scroll-view scroll-y="true" style="height:{{usefulWindowHeight - bottomStrip - bottomDisk}}px" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
     <!--todo，展示广告-->
     <view class="order_banner">
       <image src="/images/banner/test1.png" class="order_banner_image"></image>
@@ -20,15 +20,16 @@
       <text> {{storeDistance}}km</text>
     </view>
     <view class="content" id="a{{index}}" wx:for="{{listData}}" wx:key="unique">
+      <!--分类名称-->
       <view class='list-tab'>{{item.name}}</view>
-      <view class='content-list' wx:for="{{item.foods}}" wx:key="unique" wx:for-item="items" wx:for-index="indexs">
+      <view class='content-list' wx:for="{{item.goods}}" wx:key="unique" wx:for-item="items" wx:for-index="indexs">
         <view class='list-image-box'>
           <image class="list-image" mode="widthFix" src='{{items.image_url}}'></image>
         </view>
         <view class='issue-name'>
           <view style="color:#6C6C6C;">{{items.name}}</view>
           <view style='margin-top:20rpx;color:#ff7e0c'>
-            <text style="font-size:22rpx;">¥ </text><text style="font-weight:bold;">{{items.specfoods[0].price}}.00</text>
+            <text style="font-size:22rpx;">¥ </text><text style="font-weight:bold;">{{items.price}}.00</text>
             <i class="iconfont icon-jiahao2fill plus-icon" data-type="{{index}}" data-index="{{indexs}}" bindtap="selectInfo"></i>
           </view>
         </view>
@@ -36,7 +37,7 @@
     </view>
   </scroll-view>
   <!-- 底部操作菜单 -->
-  <view class="operate-bar" wx:if="{{loading}}">
+  <view id="bottom-disk" class="operate-bar" wx:if="{{loading}}">
     <view class='gouwuche'>
       <view style='padding:5px;display:flex'>
         <i class="iconfont icon-gouwuchefill gouwuche-icon {{sumMonney!=0?'activity-color':'' }}" bindtap="showCartList">
@@ -55,7 +56,7 @@
 <view class="drawer_screen" bindtap="selectInfo" data-statu="close" wx:if="{{showModalStatus}}"></view>
 <view class="drawer_box_ad" wx:if="{{showModalStatus}}">
   <view class="drawer_content_ad">
-    <view style='font-size:16px;display:flex;justify-content:center;  '> {{listData[currentType].foods[currentIndex].name}} </view>
+    <view style='font-size:16px;display:flex;justify-content:center;  '> {{listData[currentType].goods[currentIndex].name}} </view>
     <view class="select-line-nav">规格</view>
     <view style='display:flex'>
       <view class="select-tab {{index==sizeIndex?'select-active':''}}" wx:for="{{size}}" wx:key="unique" data-type='0' data-index='{{index}}' bindtap='chooseSE'>{{item}}</view>
@@ -68,7 +69,7 @@
     <view style='display:flex'>
       <view class="select-tab {{index==temIndex?'select-active':''}}" wx:for="{{tem}}" wx:key="unique" bindtap='chooseSE' data-type='2' data-index='{{index}}'>{{item}}</view>
     </view>
-    <view class="select-price">¥{{listData[currentType].foods[currentIndex].specfoods[0].price}}.00
+    <view class="select-price">¥{{listData[currentType].goods[currentIndex].price}}
       <button class="btn-putIn" bindtap='addToCart'>加入购物车</button>
     </view>
   </view>
@@ -104,9 +105,8 @@
   </scroll-view>
 </view>
 <!-- 优惠宣传条 -->
-<view class='cut-bar' wx:if="{{sumMonney==0&&loading}}">
-  <label>满20立减3元(手机点餐专享)</label>
-</view>
-<view class='cut-bar' wx:if="{{sumMonney<20&&sumMonney!=0&&loading}}">
-  <label>满20立减3元,还差{{20-sumMonney}}元,去凑单></label>
+<view id="bottom-strip" class='cut-bar'>
+  <label wx:if="{{sumMonney==0&&loading}}">满20立减3元(手机点餐专享)</label>
+  <label wx:if="{{sumMonney>=20&&loading}}">支付立减3元</label>
+  <label wx:if="{{sumMonney<20&&sumMonney!=0&&loading}}">满20立减3元,还差{{20-sumMonney}}元,去凑单></label>
 </view>

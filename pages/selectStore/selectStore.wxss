@@ -22,6 +22,7 @@
 }
 .storeDistance{
   color: #ff7e0c;
+  font-size: 28rpx;
 }
 .icon{
   width: 30rpx;

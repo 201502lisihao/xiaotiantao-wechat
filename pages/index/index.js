@@ -62,7 +62,7 @@ Page({
     this.getWelcome();
 
     //获取最近门店
-    this.getNaerestStore();
+    this.getNearestStore();
   },
   
   /**
@@ -131,7 +131,7 @@ Page({
   /**
    * 获取离用户最近的门店信息
    */
-  getNaerestStore: function (){
+  getNearestStore: function (){
     var that = this;
     wx.getLocation({
       type: 'gcj02',

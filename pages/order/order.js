@@ -37,28 +37,44 @@ Page({
     })
     var that = this;
     //获取可用窗口高度 rpx
-    var usefulWindowHeightRpx = wx.getSystemInfoSync().windowHeight * 2;
-    //console.log(usefulWindowHeightRpx)
-    //将本来的后台换成了easy-mock 的接口，所有数据一次请求完 略大。。
+    //请求商品数据
     wx.request({
-      url: 'https://easy-mock.com/mock/59abab95e0dc66334199cc5f/coco/aa',
+      //url: 'https://easy-mock.com/mock/59abab95e0dc66334199cc5f/coco/aa',
+      url: 'https://www.qianzhuli.top/wx/goodslist?storeId=' + options.id,
       method: 'GET',
       data: {},
       header: {
         'Accept': 'application/json'
       },
       success: function (res) {
-        console.log('mock返回结果');
         console.log(res);
         //页面参数都request请求后set
         that.setData({
-          listData: res.data,
+          listData: res.data.good_list,
           loading: true,
           storeId: options.id,
           storeName: options.store_name,
           storeDistance: options.store_distance,
-          usefulWindowHeightRpx: usefulWindowHeightRpx
         });
+        //获取一些高度信息，异步调用，所以放在时间最久的请求函数的回调函数中去
+        var usefulWindowHeight = wx.getSystemInfoSync().windowHeight;
+        that.setData({
+          usefulWindowHeight: usefulWindowHeight          
+        });
+        //获取下方操作框高度
+        that.createSelectorQuery().select('#bottom-disk').boundingClientRect(function (rect) {
+          console.log(rect.height);
+          that.setData({
+            bottomDisk: rect.height
+          });
+        }).exec();
+        //获取满减框高度
+        that.createSelectorQuery().select('#bottom-strip').boundingClientRect(function (rect) {
+          console.log(rect.height);
+          that.setData({
+            bottomStrip: rect.height
+          });
+        }).exec();
         wx.hideLoading();
       },
       fail: function (res) {
@@ -81,19 +97,19 @@ Page({
     //todo打这个e日志时，选择的menu会自动往下跳一个，有bug，记得修复
     console.log(e)
     var dis = e.detail.scrollTop
-    if (dis > 0 && dis < 1189) {
+    if (dis > 0 && dis <= 200) {
       this.setData({
         activeIndex: 0,
       })
     }
-    if (dis > 1189 && dis < 1867) {
+    if (dis > 200 && dis < 1867) {
       this.setData({
         activeIndex: 1,
       })
     }
     if (dis > 1867 && dis < 2180) {
       this.setData({
-        activeIndex: 2,
+        activeIndex: 1,
       })
     }
     if (dis > 2180 && dis < 2785) {
@@ -166,13 +182,13 @@ Page({
   addToCart: function () {
     var a = this.data
     var addItem = {
-      "name": a.listData[a.currentType].foods[a.currentIndex].name,
-      "price": a.listData[a.currentType].foods[a.currentIndex].specfoods[0].price,
+      "name": a.listData[a.currentType].goods[a.currentIndex].name,
+      "price": a.listData[a.currentType].goods[a.currentIndex].price,
       "detail": a.size[a.sizeIndex] + "+" + a.sugar[a.sugarIndex] + "+" + a.tem[a.temIndex],
       "number": 1,
-      "sum": a.listData[a.currentType].foods[a.currentIndex].specfoods[0].price,
+      "sum": a.listData[a.currentType].goods[a.currentIndex].price,
     }
-    var sumMonney = a.sumMonney + a.listData[a.currentType].foods[a.currentIndex].specfoods[0].price;
+    var sumMonney = a.sumMonney + a.listData[a.currentType].goods[a.currentIndex].price;
     var cartList = this.data.cartList;
     cartList.push(addItem);
     this.setData({
