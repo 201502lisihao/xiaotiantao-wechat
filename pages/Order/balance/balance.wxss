@@ -22,8 +22,8 @@ page{
   display:flex;
   align-items: center;
   margin-left:40rpx;
-  margin-top: 14rpx;
-  font-size:40rpx;
+  margin-top: 10rpx;
+  font-size:50rpx;
   font-weight: bold;
 }
 

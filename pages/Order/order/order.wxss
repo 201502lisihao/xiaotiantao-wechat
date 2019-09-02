@@ -283,7 +283,7 @@
   height:40rpx; 
   position: fixed;
   bottom:110rpx;
-  background:#ff7e0c;
+  background:#ff730077;
   width:100%;
   color:#FFF7EC;
   font-size:24rpx;
