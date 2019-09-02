@@ -22,7 +22,7 @@ page{
   display:flex;
   align-items: center;
   margin-left:40rpx;
-  margin-top: 10rpx;
+  margin-top: 5rpx;
   font-size:50rpx;
   font-weight: bold;
 }
