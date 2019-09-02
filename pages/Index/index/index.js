@@ -89,7 +89,7 @@ Page({
    */
   onOrder: function (){
     wx.navigateTo({
-      url: '/pages/selectStore/selectStore',
+      url: '/pages/Order/selectStore/selectStore',
     })
   },
 

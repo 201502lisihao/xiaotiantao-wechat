@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/selectStore/selectStore",
-    "pages/order/order",
-    "pages/orderList/orderList",
-    "pages/user/user",
+    "pages/Index/index/index",
+    "pages/Order/selectStore/selectStore",
+    "pages/Order/order/order",
+    "pages/Order/orderList/orderList",
+    "pages/Order/orderDetail/orderDetail",
+    "pages/User/user/user",
     "pages/test/test",
-    "pages/logs/logs",
-    "pages/orderDetail/orderDetail"
+    "pages/logs/logs"
   ],
   "permission": {
     "scope.userLocation": {
@@ -25,19 +25,19 @@
       {
         "iconPath": "images/icons/index_def.png",
         "selectedIconPath": "images/icons/index.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/Index/index/index",
         "text": "首页"
       },
       {
         "iconPath": "images/icons/order_def.png",
         "selectedIconPath": "images/icons/order.png",
-        "pagePath": "pages/orderList/orderList",
+        "pagePath": "pages/Order/orderList/orderList",
         "text": "订单"
       },
       {
         "iconPath": "images/icons/user_def.png",
         "selectedIconPath": "images/icons/user.png",
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/User/user/user",
         "text": "我的"
       }
     ],

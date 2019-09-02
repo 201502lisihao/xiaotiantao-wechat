@@ -138,7 +138,7 @@ Page({
    */
   goIndex: function () {
     wx.switchTab({
-      url: '/pages/index/index',
+      url: '/pages/Index/index/index',
     })
   }
 })

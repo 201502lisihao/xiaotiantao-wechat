@@ -77,7 +77,7 @@ Page({
   orderDetail: function (id) {
     var id = id.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/orderDetail/orderDetail?id='+id,
+      url: '/pages/Order/orderDetail/orderDetail?id='+id,
     });
   },
 
@@ -124,7 +124,7 @@ Page({
    */
   goOrder: function (){
     wx.navigateTo({
-      url: '/pages/selectStore/selectStore',
+      url: '/pages/Order/selectStore/selectStore',
     })
   }
 })

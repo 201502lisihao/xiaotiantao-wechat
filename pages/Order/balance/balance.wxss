@@ -1,0 +1,152 @@
+/* pages/order/balance/balance.wxss */
+page{
+  background: #F8F8F8
+}
+.operate-bar{
+  z-index: 1001; 
+  position: absolute;
+  bottom: 0rpx;
+  height:110rpx;
+  width:100%;
+  display: flex;
+}
+.gouwuche{
+  width:75%;
+  background:#353535;
+  height: 100%; 
+  
+}
+
+.gouwuche-price{
+  color:#FFFFFF;
+  display:flex;
+  align-items: center;
+  margin-left:40rpx;
+  margin-top: 14rpx;
+  font-size:40rpx;
+  font-weight: bold;
+}
+
+.number-msg{
+  padding: 2rpx 14rpx;
+  border-radius:50%;
+  background:red;
+  color:white;
+  font-size:28rpx;
+  position: absolute;
+  text-align: center;
+  top:0rpx;
+  right:-10rpx;
+}
+
+.submit-btn{
+  height:100%;
+  background:#F7F7F7;
+  width:25%;
+  display:flex;
+}
+.submit-btn-label{
+  color:white;
+  font-size:30rpx;
+  margin:auto;
+}
+.activity-color{
+  color:#FF9C35;
+}
+.submit-btn{
+  height:100%;
+  background:#F7F7F7;
+  width:25%;
+  display:flex;
+}
+
+.activity-color-bg{
+  background:#FF9C35;
+}
+
+.cart-list-box{
+  background:#FFFFFF;
+  display:flex;
+  font-size:30rpx;
+  border-bottom:2rpx #E3E3E3 solid;
+}
+.list-info{
+  width:50%;
+  padding:10rpx 30rpx;
+}
+.list-info-size{
+  font-size:20rpx;
+  color:#B1B1B1;
+}
+.icon-li-circle{
+  margin-left:30rpx;
+  font-size:40rpx
+}
+.font20{
+  font-size:40rpx
+}
+.top-bar{
+  height:60rpx;
+  font-size:28rpx;
+  background: white;
+}
+.top-left-label{
+  float:left;
+  padding:10rpx;
+  margin-left:20rpx;
+}
+.top-right-label{
+  float:right;
+  font-size:26rpx;
+  padding:10rpx;
+}
+.order-info{
+  background: white;
+  margin-top:20rpx;
+}
+.order-info-title{
+  font-size:24rpx;
+  color: #D1D1D1;
+  padding: 24rpx;
+  border-bottom: 2rpx #E3E3E3 solid
+}
+.order-cut{
+  height:60rpx;
+  padding:10rpx 30rpx;
+  border-bottom: 2rpx #E3E3E3 solid;
+}
+.order-cut-dec{
+  background:#F07474;
+  font-size:26rpx;
+  color:white;
+  padding:4rpx
+}
+.order-cut-note{
+  margin-left:6rpx;
+  font-size:28rpx
+}
+.order-cut-number{
+  font-size:28rpx;
+  float:right;
+}
+.order-sum{
+  height:60rpx;
+  padding:10rpx 30rpx;
+  font-size:28rpx;
+}
+.order-sum-number{
+  font-size:28rpx;
+  float:right;
+}
+.note{
+  padding:10rpx 30rpx;
+  background:white;
+  margin-top:20rpx
+}
+.note-text{
+  width:95%;
+  font-size:28rpx;
+  background:#F2F2F2;
+  padding:20rpx;
+  height:160rpx;
+}
