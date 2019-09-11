@@ -1,0 +1,12 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">支付结果</view>
+        <view class="page__desc">测试环境手动选择支付结果</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <button class="weui-btn" type="primary" bindtap="paySuccess">支付成功</button>
+
+        <button class="weui-btn" type="warn" bindtap="payFail">支付失败</button>
+    </view>
+</view>
+
