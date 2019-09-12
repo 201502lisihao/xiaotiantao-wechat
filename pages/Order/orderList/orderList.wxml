@@ -1,3 +1,8 @@
+<!-- 下拉刷新提示 -->
+<view style="text-align: center;margin-bottom:-20rpx;margin-top:20rpx;">
+  <label style="font-size:24rpx; color:gray;">-----下拉查看最新订单-----</label>
+</view>
+<!-- 订单列表展示 -->
 <view wx:if="{{hasOrderList}}" class="container">
   <block wx:for="{{orderList}}" wx:key="id">
     <view class="card">
