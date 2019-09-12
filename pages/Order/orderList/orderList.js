@@ -87,37 +87,58 @@ Page({
   getOrderListByUserId: function () {
     var that = this;
     var userId = wx.getStorageSync('userId');
+    //请求服务器，获取该用户实时的orderList并放入缓存
+    wx.request({
+      url: 'https://www.qianzhuli.top/wx/getorderlistbyuserid?userId=' + userId,
+      success: function (res) {
+        var orderList = res.data.order_list
+        console.log(orderList);
+        //放入本地缓存
+        //wx.setStorageSync(key, orderList);
+        //放入页面data
+        if (orderList != false) {
+          that.setData({
+            orderList: orderList,
+            hasOrderList: true
+          })
+        }
+      },
+      fail: function (res) {
+        console.log('请求服务器获取用户orderlist失败');
+        console.log(res);
+      }
+    })
     //读缓存，有缓存直接用缓存数据，否则请求数据库，获取最新的订单数据
     //todo 下单时要清除对应缓存，保证用户进订单页时能拿到正确数据
-    var key = userId + '_OrderList';
-    var cache = wx.getStorageSync(key);
-    if(cache != false){
-      that.setData({
-        orderList: cache
-      });
-    } else {
-      //请求服务器，获取该用户实时的orderList并放入缓存
-      wx.request({
-        url: 'https://www.qianzhuli.top/wx/getorderlistbyuserid?userId=' + userId,
-        success: function (res) {
-          var orderList = res.data.order_list
-          console.log(orderList);
-          //放入本地缓存
-          //wx.setStorageSync(key, orderList);
-          //放入页面data
-          if(orderList != false){
-            that.setData({
-              orderList: orderList,
-              hasOrderList: true
-            })
-          }
-        },
-        fail: function (res) {
-          console.log('请求服务器获取用户orderlist失败');
-          console.log(res);
-        }
-      })
-    }
+    // var key = userId + '_OrderList';
+    // var cache = wx.getStorageSync(key);
+    // if(cache != false){
+    //   that.setData({
+    //     orderList: cache
+    //   });
+    // } else {
+    //   //请求服务器，获取该用户实时的orderList并放入缓存
+    //   wx.request({
+    //     url: 'https://www.qianzhuli.top/wx/getorderlistbyuserid?userId=' + userId,
+    //     success: function (res) {
+    //       var orderList = res.data.order_list
+    //       console.log(orderList);
+    //       //放入本地缓存
+    //       //wx.setStorageSync(key, orderList);
+    //       //放入页面data
+    //       if(orderList != false){
+    //         that.setData({
+    //           orderList: orderList,
+    //           hasOrderList: true
+    //         })
+    //       }
+    //     },
+    //     fail: function (res) {
+    //       console.log('请求服务器获取用户orderlist失败');
+    //       console.log(res);
+    //     }
+    //   })
+    // }
   },
   /**
    * 即刻下单
