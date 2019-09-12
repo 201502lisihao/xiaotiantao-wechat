@@ -10,7 +10,8 @@
           <view class="weui-cell__bd">门店名称：{{item.store_name}}</view>
         </view>
         <view class="weui-cell">
-          <view class="weui-cell__bd">取单时间：{{item.get_time}}</view>
+          <view class="weui-cell__bd" wx:if="{{item.get_time}}">完成时间：{{item.get_time}}</view>
+          <view class="weui-cell__bd" wx:else>完成时间：未完成</view>
         </view>
         <view class="weui-cell">
           <view class="weui-cell__bd">订单类型：{{item.type}}</view>

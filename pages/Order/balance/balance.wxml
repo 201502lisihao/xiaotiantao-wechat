@@ -2,6 +2,14 @@
 <view>
   <scroll-view scroll-y="true" style="height:{{usefulWindowHeight}}px">
   <view class='top-bar'>
+    <label class='top-left-label'>取餐门店</label>
+    <view>
+        <label class='top-right-label activity-color'>{{storeName}}</label>    
+    </view>
+  </view>
+
+  <!-- 取餐时间先注释掉 -->
+  <!-- <view class='top-bar'>
     <label class='top-left-label'>取餐时间 (默认立即制作)</label>
     <view wx:if="{{getOrderTime}}">
       <picker class="weui-btn" mode="time" value="{{getOrderTime}}" start="09:01" end="21:01" bindchange="bindTimeChange">
@@ -13,7 +21,8 @@
         <label class='top-right-label activity-color'>请选择取餐时间</label>
       </picker>
     </view>
-  </view>
+  </view> -->
+
   <!-- 订单详情 -->
   <view class='order-info'>
     <view class='order-info-title'>订单详情</view>
@@ -29,20 +38,20 @@
         </view>
       </view>
     </view>
-    <view class='order-cut' wx:if="{{cutMonney!=0}}">
+    <view class='order-cut' wx:if="{{cutMoney!=0}}">
       <label class='order-cut-dec'>减</label>
       <label class='order-cut-note'>满20元立减3元</label>
       <label class='order-cut-number activity-color'>-¥ 3.00</label>
     </view>
     <view class='order-sum'>
       <label>总计 </label>
-      <label class='order-sum-number activity-color'>¥ {{sumMonney-cutMonney}}</label>
+      <label class='order-sum-number activity-color'>¥ {{sumMoney-cutMoney}}</label>
     </view>
   </view>
 <!-- 备注 -->
   <view class='note'>
     <label style='font-size:13px;color:#A3A3A3'>备注</label>
-    <textarea placeholder='如有特殊，请输入备注' class='note-text'></textarea>
+    <textarea placeholder='如需指定取餐时间或其它要求，请填写备注' class='note-text' bindinput="bzInput"></textarea>
   </view>
   </scroll-view>
   
@@ -50,7 +59,7 @@
   <view class="operate-bar" id="bottom-disk">
     <view class='gouwuche'>
       <view style='padding:5px;display:flex'>
-        <view class='gouwuche-price'>¥ {{sumMonney-cutMonney}}.00</view>
+        <view class='gouwuche-price'>¥ {{sumMoney-cutMoney}}.00</view>
       </view>
     </view>
     <view class="submit-btn activity-color-bg" bindtap='gopay'>

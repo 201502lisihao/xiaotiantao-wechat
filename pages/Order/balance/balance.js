@@ -6,9 +6,9 @@ Page({
    */
   data: {
     cartList: [],
-    sumMonney: 0,
-    cutMonney: 0,
-    cupNumber: 0,
+    sumMoney: 0,
+    cutMoney: 0,
+    storeName: null,
   },
 
   /**
@@ -24,9 +24,9 @@ Page({
     })
     that.setData({
       cartList: wx.getStorageSync('cartList'),
-      sumMonney: wx.getStorageSync('sumMonney'),
-      cutMonney: wx.getStorageSync('sumMonney') > 19 ? 3 : 0,
-      cupNumber: wx.getStorageSync('cupNumber'),
+      sumMoney: wx.getStorageSync('sumMoney'),
+      cutMoney: wx.getStorageSync('sumMoney') > 19 ? 3 : 0,
+      storeName: wx.getStorageSync('storeName'),
     })
     //获取可用屏幕高度 55是底部操作框高度
     var usefulWindowHeight = wx.getSystemInfoSync().windowHeight;
@@ -34,6 +34,7 @@ Page({
       usefulWindowHeight: usefulWindowHeight - 55
     });
   },
+
   gopay: function () {
     //调微信支付接口，获取支付结果，在成功的回调中跳转下一个页面，保存订单数据，展示下单成功
     wx.navigateTo({
@@ -41,11 +42,20 @@ Page({
     })
   },
 
-  bindTimeChange: function (e) {
-    this.setData({
-      getOrderTime: e.detail.value
-    })
+  //选择取餐时间，暂时注释
+  // bindTimeChange: function (e) {
+  //   this.setData({
+  //     getOrderTime: e.detail.value
+  //   })
+  // },
+
+  /**
+   * 获取备注,和其它订单信息一起放入缓存
+   */
+  bzInput: function (e) {
+    wx.setStorageSync('OrderNote', e.detail.value);
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

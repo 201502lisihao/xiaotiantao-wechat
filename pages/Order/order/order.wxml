@@ -40,15 +40,15 @@
   <view id="bottom-disk" class="operate-bar" wx:if="{{loading}}">
     <view class='gouwuche'>
       <view style='padding:5px;display:flex'>
-        <i class="iconfont icon-gouwuchefill gouwuche-icon {{sumMonney!=0?'activity-color':'' }}" bindtap="showCartList">
+        <i class="iconfont icon-gouwuchefill gouwuche-icon {{sumMoney!=0?'activity-color':'' }}" bindtap="showCartList">
           <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
         </i>
-        <view class='gouwuche-price' wx:if="{{sumMonney==0}}">购物车是空的</view>
-        <view class='gouwuche-price' style='color:white;font-size:36rpx;margin-top:20rpx;' wx:if="{{sumMonney!=0}}">¥ {{sumMonney}}.00</view>
+        <view class='gouwuche-price' wx:if="{{sumMoney==0}}">购物车是空的</view>
+        <view class='gouwuche-price' style='color:white;font-size:36rpx;margin-top:20rpx;' wx:if="{{sumMoney!=0}}">¥ {{sumMoney}}.00</view>
       </view>
     </view>
-    <view class="submit-btn {{sumMonney!=0?'activity-color-bg':'' }}" bindtap='goBalance'>
-      <view class="submit-btn-label {{sumMonney!=0?'color-white':'' }}">选好了</view>
+    <view class="submit-btn {{sumMoney!=0?'activity-color-bg':'' }}" bindtap='goBalance'>
+      <view class="submit-btn-label {{sumMoney!=0?'color-white':'' }}">选好了</view>
     </view>
   </view>
 </view>
@@ -106,7 +106,7 @@
 </view>
 <!-- 优惠宣传条 -->
 <view id="bottom-strip" class='cut-bar'>
-  <label wx:if="{{sumMonney==0&&loading}}">满20立减3元(手机点餐专享)</label>
-  <label wx:if="{{sumMonney>=20&&loading}}">支付立减3元</label>
-  <label wx:if="{{sumMonney<20&&sumMonney!=0&&loading}}">满20立减3元,还差{{20-sumMonney}}元,去凑单></label>
+  <label wx:if="{{sumMoney==0&&loading}}">满20立减3元(手机点餐专享)</label>
+  <label wx:if="{{sumMoney>=20&&loading}}">支付立减3元</label>
+  <label wx:if="{{sumMoney<20&&sumMoney!=0&&loading}}">满20立减3元,还差{{20-sumMoney}}元,去凑单></label>
 </view>

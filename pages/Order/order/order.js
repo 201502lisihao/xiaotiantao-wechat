@@ -20,7 +20,7 @@ Page({
     tem: ['常规冰', '多冰', '少冰', '去冰', '温', '热'],
     size: ['常规', '珍珠', '西米露'],
     cartList: [],
-    sumMonney: 0,
+    sumMoney: 0,
     cupNumber: 0,
     showCart: false,
     loading: false,
@@ -188,13 +188,13 @@ Page({
       "number": 1,
       "sum": a.listData[a.currentType].goods[a.currentIndex].price,
     }
-    var sumMonney = a.sumMonney + a.listData[a.currentType].goods[a.currentIndex].price;
+    var sumMoney = a.sumMoney + a.listData[a.currentType].goods[a.currentIndex].price;
     var cartList = this.data.cartList;
     cartList.push(addItem);
     this.setData({
       cartList: cartList,
       showModalStatus: false,
-      sumMonney: sumMonney,
+      sumMoney: sumMoney,
       cupNumber: a.cupNumber + 1
     });
     console.log(this.data.cartList)
@@ -212,7 +212,7 @@ Page({
     this.setData({
       cartList: [],
       showCart: false,
-      sumMonney: 0
+      sumMoney: 0
     });
   },
   addNumber: function (e) {
@@ -220,12 +220,12 @@ Page({
     console.log(index)
     var cartList = this.data.cartList;
     cartList[index].number++;
-    var sum = this.data.sumMonney + cartList[index].price;
+    var sum = this.data.sumMnney + cartList[index].price;
     cartList[index].sum += cartList[index].price;
 
     this.setData({
       cartList: cartList,
-      sumMonney: sum,
+      sumMoney: sum,
       cupNumber: this.data.cupNumber + 1
     });
   },
@@ -234,21 +234,22 @@ Page({
     console.log(index)
     var cartList = this.data.cartList;
 
-    var sum = this.data.sumMonney - cartList[index].price;
+    var sum = this.data.sumMoney - cartList[index].price;
     cartList[index].sum -= cartList[index].price;
     cartList[index].number == 1 ? cartList.splice(index, 1) : cartList[index].number--;
     this.setData({
       cartList: cartList,
-      sumMonney: sum,
+      sumMoney: sum,
       showCart: cartList.length == 0 ? false : true,
       cupNumber: this.data.cupNumber - 1
     });
   },
   goBalance: function () {
-    if (this.data.sumMonney != 0) {
+    if (this.data.sumMoney != 0) {
       wx.setStorageSync('cartList', this.data.cartList);
-      wx.setStorageSync('sumMonney', this.data.sumMonney);
+      wx.setStorageSync('sumMoney', this.data.sumMoney);
       wx.setStorageSync('cupNumber', this.data.cupNumber);
+      wx.setStorageSync('storeName', this.data.storeName);
       wx.navigateTo({
         url: '../balance/balance'
       })

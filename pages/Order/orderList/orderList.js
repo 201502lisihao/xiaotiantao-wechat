@@ -77,7 +77,7 @@ Page({
   orderDetail: function (id) {
     var id = id.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/Order/orderDetail/orderDetail?id='+id,
+      url: '../orderResult/orderResult?orderId=' + id,
     });
   },
 

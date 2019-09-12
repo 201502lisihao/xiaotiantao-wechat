@@ -11,11 +11,11 @@
       </view>
       <view>
         <view class='go-top-10'>
-          <label class='number-card'>C097</label>
-          <label class='statu-card'>制作中</label>
+          <label class='number-card'>{{getNo}}</label>
+          <label class='statu-card'>{{orderStatus}}</label>
         </view>
         <view class='note-card'>
-          商品准备中，尽快为您服务
+          商品准备中，我们将尽快为您服务
         </view>
       </view>
     </view>
@@ -35,20 +35,24 @@
         </view>
       </view>
     </view>
-
+    <view class='order-cut' wx:if="{{cutMoney!=0}}">
+      <label class='order-cut-dec'>减</label>
+      <label class='order-cut-note'>满20元立减3元</label>
+      <label class='order-cut-number activity-color'>-¥ 3.00</label>
+    </view>
     <view class='order-sum'>
       <label>总计 </label>
-      <label class='order-sum-number activity-color'>¥ {{sumMonney-cutMonney}}</label>
+      <label class='order-sum-number activity-color'>¥ {{sumMoney-cutMoney}}</label>
     </view>
   </view>
   <view class='order-info'>
     <!-- 本应动态请求，在此写死 -->
     <view class='order-info-title'>订单信息</view>
     <view class='order-info-title flex-display' >订单号码
-      <view style='color:black;margin-left:10px'>WD100321342354351356</view>
+      <view style='color:black;margin-left:10px'>{{orderNo}}</view>
     </view>
     <view class='order-info-title flex-display' >订单时间
-      <view class="order-info-li">2017-10-10 14:51:25</view>
+      <view class="order-info-li">{{createAt}}</view>
     </view>
   </view>
 

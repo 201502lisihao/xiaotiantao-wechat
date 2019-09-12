@@ -7,7 +7,6 @@
     "pages/Order/orderPay/orderPay",
     "pages/Order/orderResult/orderResult",
     "pages/Order/orderList/orderList",
-    "pages/Order/orderDetail/orderDetail",
     "pages/User/user/user",
     "pages/test/test",
     "pages/logs/logs"

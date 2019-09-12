@@ -4,15 +4,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    cartList: [],
+    sumMoney: 0,
+    cutMoney: 0,
+    orderIdPay: 0,
   },
 
   /**
    * 支付成功
    */
   paySuccess: function () {
-    wx.navigateTo({
-      url: '../orderResult/orderResult',
+    var that = this;
+    wx.request({
+      url: 'https://www.qianzhuli.top/wx/orderpay?orderId=' + that.data.orderIdPay,
+      success(res) {
+        wx.redirectTo({
+          url: '../orderResult/orderResult?orderId=' + that.data.orderIdPay,
+        })
+      },
+      fail(res) {
+        console.log('支付成功告知服务器更新订单状态失败');        
+        console.log(res);
+      }
     })
   },
 
@@ -29,14 +42,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+    wx.showLoading({
+      title: '努力加载中',
+    });
+    //请求服务端保存订单
+    wx.request({
+      url: 'https://www.qianzhuli.top/wx/createorder',
+      method: 'POST',
+      data: {
+        userId: wx.getStorageSync('userId'),
+        cartList: wx.getStorageSync('cartList'),
+        sumMoney: wx.getStorageSync('sumMoney'),
+        cutMoney: wx.getStorageSync('sumMoney') > 19 ? 3 : 0,
+        storeName: wx.getStorageSync('storeName'),
+        orderNote: wx.getStorageSync('orderNote')
+      },
+      fail: function (res) {
+        console.log('下单失败,res=' + res)
+      },
+      success: function (res) {
+        //下单成功，执行支付操作
+        console.log(res)
+        that.setData({
+          orderIdPay: res.data.orderId,
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    wx.hideLoading();
   },
 
   /**
