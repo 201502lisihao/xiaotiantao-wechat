@@ -49,7 +49,7 @@
 
 <!--页面跳转-->
 <view class="btn-area">
-  <navigator url="/pages/logs/logs" hover-class="changestyle">log页面跳转，可以返回</navigator>
+  <navigator url="/pages/Order/selectStore/selectStore" hover-class="changestyle">log页面跳转，可以返回</navigator>
   <navigator url="/pages/user/user" open-type="switchTab" hover-class="other-navigator-hover">切换tab</navigator>
 </view>
 
