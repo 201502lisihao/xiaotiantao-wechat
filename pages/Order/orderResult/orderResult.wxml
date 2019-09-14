@@ -46,7 +46,12 @@
     </view>
   </view>
   <view class='order-info'>
-    <!-- 本应动态请求，在此写死 -->
+    <view class='order-info-title'>订单备注</view>
+    <view class='order-info-title flex-display' >
+      <view style='color:black;margin-left:10px'>{{orderNote}}</view>
+    </view>
+  </view>
+  <view class='order-info'>
     <view class='order-info-title'>订单信息</view>
     <view class='order-info-title flex-display' >订单号码
       <view style='color:black;margin-left:10px'>{{orderNo}}</view>
@@ -56,7 +61,7 @@
     </view>
   </view>
 
-  <view style='margin-top:15px' class='go-center'>
+  <view style='margin-top:30rpx;margin-bottom:30rpx' class='go-center'>
         <label class='note-exchange'>请凭此画面至取餐柜台领取商品</label>
   </view>
 </view>

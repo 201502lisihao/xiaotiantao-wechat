@@ -53,7 +53,7 @@ Page({
    * 获取备注,和其它订单信息一起放入缓存
    */
   bzInput: function (e) {
-    wx.setStorageSync('OrderNote', e.detail.value);
+    wx.setStorageSync('orderNote', e.detail.value);
   },
 
   /**

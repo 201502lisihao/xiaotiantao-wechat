@@ -28,6 +28,7 @@ Page({
           cartList: res.data.cartList,
           sumMoney: res.data.sumMoney,
           cutMoney: res.data.sumMoney > 19 ? 3 : 0,
+          orderNote: res.data.orderNote,
           createAt: res.data.createAt,
           orderStatus: res.data.orderStatus
         })
