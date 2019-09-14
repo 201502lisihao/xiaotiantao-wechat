@@ -48,7 +48,8 @@
   <view class='order-info'>
     <view class='order-info-title'>订单备注</view>
     <view class='order-info-title flex-display' >
-      <view style='color:black;margin-left:10px'>{{orderNote}}</view>
+      <view wx:if="{{orderNote}}" style='color:black;margin-left:10px'>{{orderNote}}</view>
+      <view wx:else style='color:black;margin-left:10px'>无</view>
     </view>
   </view>
   <view class='order-info'>

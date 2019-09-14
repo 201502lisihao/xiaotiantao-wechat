@@ -3,9 +3,11 @@
 <view class="page">
   <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='4000' duration='500' circular='true' indicator-active-color='#ff7e0c'>
     <block wx:for="{{bnrUrl}}" wx:for-index="index">
+    <navigator url="/pages/Activity/banner/banner">
       <swiper-item>
         <image src='{{item.url}}' class='u-img-slide' mode='aspectFill'></image>
       </swiper-item>
+    </navigator>
     </block>
   </swiper>
 </view>
@@ -37,14 +39,14 @@
 <view class="page">
   <view class="page-bd">
     <view class="weui-cells">
-      <navigator url="/pages/logs/logs" class="weui-cell" hover-class="weui-cell-hover">
+      <navigator url="/pages/Activity/banner/banner" class="weui-cell" hover-class="weui-cell-hover">
         <view class="weui-cell__hd">
           <image src="{{icon[0].one}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
         </view>
         <view class="weui-cell__bd">限时拼团</view>
         <view class="weui-cell__ft_in-access"></view>
       </navigator>
-      <navigator url="/pages/logs/logs" class="weui-cell" hover-class="weui-cell-hover">
+      <navigator url="/pages/Activity/banner/banner" class="weui-cell" hover-class="weui-cell-hover">
         <view class="weui-cell__hd">
           <image src="{{icon[0].two}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
         </view>

@@ -8,6 +8,7 @@
     "pages/Order/orderResult/orderResult",
     "pages/Order/orderList/orderList",
     "pages/User/user/user",
+    "pages/Activity/banner/banner",
     "pages/test/test",
     "pages/logs/logs"
   ],

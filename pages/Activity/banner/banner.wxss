@@ -1,0 +1,9 @@
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.page__hd {
+  padding: 40rpx;
+}

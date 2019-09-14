@@ -59,9 +59,13 @@ Page({
         orderNote: wx.getStorageSync('orderNote')
       },
       fail: function (res) {
+        //清除订单备注的缓存
+        wx.removeStorageSync('orderNote');
         console.log('下单失败,res=' + res)
       },
       success: function (res) {
+        //清除订单备注的缓存
+        wx.removeStorageSync('orderNote');
         //下单成功，执行支付操作
         console.log(res)
         that.setData({
