@@ -220,7 +220,10 @@ Page({
     console.log(index)
     var cartList = this.data.cartList;
     cartList[index].number++;
-    var sum = this.data.sumMnney + cartList[index].price;
+    console.log(this.data.sumMoney);
+    console.log(cartList[index].price);
+    var sum = this.data.sumMoney + cartList[index].price;
+    console.log(sum);
     cartList[index].sum += cartList[index].price;
 
     this.setData({
